@@ -1,0 +1,11 @@
+/* app.component.scss or your main layout's styling */
+router-outlet {
+    margin-left: 250px; /* Adjust this value based on your sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .collapsed router-outlet {
+    margin-left: 50px; /* Adjust the margin for the collapsed state */
+  }
+  

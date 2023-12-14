@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <title>Sign In Page</title>
+</head>
+<body>
+ <!-- signin-signup.component.html -->
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="">
+          <div class="card-body" *ngIf="!isAuthenticated">
+            <h2 class="card-title text-center">User Authentication</h2>
+            
+            <!-- Toggle buttons for Signin and Signup -->
+            
+            
+            <!-- Signin Form -->
+            <form *ngIf="showSignin">
+                <div *ngIf="!isAuthenticated">
+              <div class="form-group">
+                <label for="signinUsername">Email/Mobile</label>
+                <input type="text" class="form-control" id="signinEmail" name="signinemail" [(ngModel)]="signinData.email" required>
+              </div>
+              <div class="form-group">
+                <label for="signinPassword">Password</label>
+                <input type="password" class="form-control" id="signinPassword" name="signinPassword" [(ngModel)]="signinData.password" required>
+              </div>
+
+              <div class="text-center mb-3" >
+                <button type="button" class="btn btn-light" (click)="onSignin()">Log In</button>
+                <div style="width: 450px; display: inline-block;"></div>
+
+                <button class="btn btn-primary p-2" (click)="showSignup = true; showSignin = false" [class.active]="showSignup">Sign Up</button>
+
+
+              </div>
+
+            </div>
+            </form>
+            
+            <!-- Signup Form -->
+            <form *ngIf="showSignup">
+              <div class="form-group">
+                <label for="signupUsername">Username</label>
+                <input type="text" class="form-control" id="signupUsername" name="signupUsername" [(ngModel)]="signupData.username" required>
+              </div>
+              <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" class="form-control" id="signupEmail" name="signupEmail" [(ngModel)]="signupData.email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="signupEmail">Mobile</label>
+                <input type="number" class="form-control" id="signupmobile" name="signupMobile" [(ngModel)]="signupData.mobile" required>
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" class="form-control" id="signupPassword" name="signupPassword" [(ngModel)]="signupData.password" required>
+              </div>
+
+              <div class="text-center mb-3" >
+                <button type="button" class="btn btn-light" (click)="onSignup()">Submit</button>
+                <div style="width: 450px; display: inline-block;"></div>
+                <button class="btn btn-primary p-2" (click)="showSignin = true; showSignup = false" [class.active]="showSignin">Sign In</button>
+
+              </div>
+            </form>
+           
+          </div>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</body>
+</html>
